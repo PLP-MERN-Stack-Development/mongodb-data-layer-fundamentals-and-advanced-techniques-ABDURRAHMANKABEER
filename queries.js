@@ -1,9 +1,8 @@
-// queries.js
 // MongoDB queries for PLP Bookstore Assignment
 
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb://localhost:27017"; // Change if using Atlas
+const uri = "mongodb://localhost:27017";
 const dbName = "plp_bookstore";
 const collectionName = "books";
 
@@ -17,9 +16,7 @@ async function runQueries() {
     const db = client.db(dbName);
     const books = db.collection(collectionName);
 
-    // -------------------------
     // Task 2: Basic CRUD
-    // -------------------------
     console.log("\n--- BASIC CRUD ---");
 
     // 1. Find all books in a specific genre
@@ -45,9 +42,7 @@ async function runQueries() {
     const deleteResult = await books.deleteOne({ title: "Moby Dick" });
     console.log("\nDelete Result:", deleteResult.deletedCount, "book deleted");
 
-    // -------------------------
     // Task 3: Advanced Queries
-    // -------------------------
     console.log("\n--- ADVANCED QUERIES ---");
 
     // 1. Books in stock and published after 2010
@@ -72,9 +67,7 @@ async function runQueries() {
     console.log("\nPage 1:", page1);
     console.log("\nPage 2:", page2);
 
-    // -------------------------
     // Task 4: Aggregation Pipeline
-    // -------------------------
     console.log("\n--- AGGREGATION ---");
 
     // 1. Average price by genre
@@ -101,9 +94,7 @@ async function runQueries() {
     ]).toArray();
     console.log("\nBooks grouped by decade:", booksByDecade);
 
-    // -------------------------
     // Task 5: Indexing
-    // -------------------------
     console.log("\n--- INDEXING ---");
 
     // 1. Index on title
