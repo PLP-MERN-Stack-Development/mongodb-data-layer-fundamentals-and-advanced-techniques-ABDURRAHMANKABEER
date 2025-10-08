@@ -1,59 +1,110 @@
-# MongoDB Fundamentals - Week 1
+# 📚 PLP Bookstore – MongoDB Assignment
 
-## Setup Instructions
+## 🗄️ Overview
+This project demonstrates the use of MongoDB for managing a simple bookstore database.  
+It covers MongoDB fundamentals such as CRUD operations, advanced queries, aggregation pipelines, and indexing.
 
-Before you begin this assignment, please make sure you have the following installed:
+---
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
+## 🚀 Files Included
+| File | Description |
+|------|--------------|
+| **insert_books.js** | Script to populate the `books` collection with sample data |
+| **queries.js** | Contains all MongoDB queries for CRUD, filtering, sorting, aggregation, and indexing |
+| **README.md** | Project documentation explaining setup and usage |
 
-### Node.js Package Setup
+---
 
-Once you have Node.js installed, run the following commands in your assignment directory:
+## 📸 Screenshots
 
+### 1️⃣ Inserting Books into MongoDB
+This shows the output after running `insert_books.js`:
+![Insert Books Output 1](./screenshots/image.png)
+![Insert Books Output 2](./screenshots/image2.png)
+
+
+---
+
+## 🧰 Requirements
+- Node.js (v18+ recommended)
+- MongoDB (Local or Atlas)
+- MongoDB Shell (`mongosh`) or MongoDB Compass (optional for GUI view)
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Install MongoDB (Local)
+Run the following commands to install MongoDB Community Edition on Ubuntu:
 ```bash
-# Initialize a package.json file
-npm init -y
-
-# Install the MongoDB Node.js driver
-npm install mongodb
+sudo apt update
+sudo apt install -y mongodb
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
 ```
 
-## Assignment Overview
+To confirm installation:
+```bash
+mongosh
+```
+If it opens the Mongo shell, MongoDB is installed successfully.
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
+---
 
-## Submission
+### 2️⃣ OR Use MongoDB Atlas (Cloud)
+If you prefer cloud:
+1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Create a free account and cluster
+3. Copy your **connection string**
+4. Replace this line in both JS files:
+   ```js
+   const uri = "mongodb://localhost:27017";
+   ```
+   with:
+   ```js
+   const uri = "your_atlas_connection_string";
+   ```
 
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
+---
 
-## Getting Started
+## 🧩 Running the Scripts
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+### Step 1: Insert Sample Data
+```bash
+node insert_books.js
+```
 
-## Files Included
+This creates a database called **`plp_bookstore`** and a collection called **`books`** with 10+ sample documents.
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+### Step 2: Run the Queries
+```bash
+node queries.js
+```
 
-## Requirements
+This executes:
+- CRUD operations  
+- Advanced filtering and projection  
+- Sorting and pagination  
+- Aggregation pipelines  
+- Index creation and performance analysis  
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+---
 
-## Resources
+## 🧪 Sample Output
+After running `insert_books.js` and `queries.js`, message like these will be seen:
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+```
+Connected to MongoDB
+12 books were successfully inserted
+Fiction Books: [ ... ]
+Average price by genre: [ ... ]
+Connection closed
+```
+
+---
+
+## 🧑‍💻 Author
+**Name:** Abdurrahman Kabir  
+**University:** Ahmadu Bello University, Zaria  
+**Specialization:** MERN Stack (PLP Program)  
+**GitHub:** [github.com/ABDURRAHMANKABEER](https://github.com/ABDURRAHMANKABEER)
